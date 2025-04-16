@@ -1,0 +1,82 @@
+/* WrappingMoto.css */
+
+/* Container principale */
+.wrapping-moto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Titolo della pagina */
+.wrapping-moto-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff6600;
+}
+
+/* Descrizione */
+.description {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Container delle cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Singola card */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Titolo della card */
+.card h2 {
+    font-size: 24px;
+    color: #ff6600;
+    margin-bottom: 15px;
+}
+
+/* Testo della card */
+.card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .wrapping-moto-container h1 {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}

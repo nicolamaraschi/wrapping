@@ -1,0 +1,93 @@
+/* Container principale */
+.wrapping-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Intestazione con logo e titolo */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spazio tra logo e titolo */
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 140px; /* Dimensione del logo */
+  height: auto;
+}
+
+/* Titolo della pagina */
+.header h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+/* Contenitore delle cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Singola card */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Titolo della card */
+.card h2 {
+  font-size: 24px;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+/* Testo della card */
+.card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Immagini delle card */
+.card-image {
+  width: 100%; /* O impostare una larghezza fissa, ad esempio 200px */
+  height: 150px; /* Imposta l'altezza fissa per uniformità */
+  object-fit: cover; /* Mantiene le proporzioni dell'immagine e taglia se necessario */
+  border-radius: 15px; /* Aggiungi angoli arrotondati se desiderato */
+  margin-bottom: 15px; /* Spazio tra immagine e testo */
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+  .header h1 {
+      font-size: 28px;
+  }
+
+  .card h2 {
+      font-size: 20px;
+  }
+
+  .card p {
+      font-size: 14px;
+  }
+
+  .card-image {
+    height: 120px; /* Altezza più piccola per schermi più piccoli */
+  }
+  
+}

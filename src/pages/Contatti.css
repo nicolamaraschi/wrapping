@@ -1,0 +1,104 @@
+/* Contacts.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Container principale */
+.contacts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Box dei contatti */
+.contact-box, .map-box, .contact-form-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+/* Titolo dei box */
+.contact-box h2, .map-box h2, .contact-form-box h2 {
+    font-size: 24px;
+    color: #ff6600;
+    margin-bottom: 20px;
+}
+
+/* Contenuti del box dei contatti */
+.contact-box p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.contact-box a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+/* Mappa */
+.map-box iframe {
+    border-radius: 10px;
+}
+
+/* Box del modulo di contatto */
+.contact-form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e55d00;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    .contacts-container {
+        flex-direction: column;
+    }
+
+    .map-box iframe {
+        height: 250px;
+    }
+}

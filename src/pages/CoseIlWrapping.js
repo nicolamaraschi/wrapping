@@ -1,14 +1,57 @@
-import React from 'react';
+// src/pages/CoseIlWrapping.js
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './CoseIlWrapping.css';
-import { FaShieldAlt, FaPalette, FaClock, FaDollarSign, FaThumbsUp } from 'react-icons/fa';
-// Rimozione framer-motion
+import { FaShieldAlt, FaPalette, FaClock, FaDollarSign, FaThumbsUp, FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa';
 
 const CoseIlWrapping = () => {
+  // Stato per il carosello
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  
+  // Array di immagini per il carosello
+  const carouselImages = [
+    "/wrapping%20auto/1.jpg",
+    "/wrapping%20auto/3.jpg",
+    "/wrapping%20auto/5.jpg",
+    "/wrapping%20moto/2.jpg",
+    "/wrapping%20moto/4.jpg",
+    "/wrapping%20moto/7.jpg"
+  ];
+  
+  // Funzioni per il carosello
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
+  };
+  
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+  };
+  
+  // Autoplay del carosello
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Cambia slide ogni 5 secondi
+    
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+  
+  // Gestione modale video
+  const openVideoModal = () => {
+    setIsVideoModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Impedisce lo scroll quando la modale è aperta
+  };
+  
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
+    document.body.style.overflow = 'auto'; // Ripristina lo scroll
+  };
+
   return (
     <div className="wrapping-container">
       <section className="hero">
         <div className="hero-content">
-          {/* Elementi motion sostituiti con elementi HTML standard */}
           <h1>
             Trasforma il tuo veicolo con il Wrapping
           </h1>
@@ -16,12 +59,110 @@ const CoseIlWrapping = () => {
             Personalizzazione professionale con pellicole di alta qualità per auto, moto, barche e molto altro
           </p>
           <div className="hero-buttons">
-            <a href="/contatti" className="btn btn-primary">Richiedi Preventivo</a>
+            <Link to="/contatti" className="btn btn-primary">Richiedi Preventivo</Link>
             <a href="#servizi" className="btn btn-outline">Scopri di Più</a>
           </div>
         </div>
-        <div className="hero-image">
-          <img src="/hero-car-wrapped.jpg" alt="Auto con wrapping professionale" />
+        <div className="hero-video">
+          <video autoPlay muted loop playsInline className="hero-bg-video">
+            <source src="/video.mp4" type="video/mp4" />
+            Il tuo browser non supporta i video HTML5.
+          </video>
+          <div className="video-overlay"></div>
+        </div>
+      </section>
+
+      {/* Sezione Video Presentazione */}
+      <section className="video-section">
+        <div className="section-header">
+          <h2>Scopri il Mondo del Wrapping</h2>
+          <p>Guarda il nostro video di presentazione e lasciati ispirare dalle infinite possibilità</p>
+        </div>
+        
+        <div className="video-container">
+          <div className="video-preview" onClick={openVideoModal}>
+            <img src="/wrapping%20auto/2.jpg" alt="Anteprima video wrapping" />
+            <div className="play-button">
+              <FaPlay />
+            </div>
+            <div className="video-overlay">
+              <span>Scopri il processo di wrapping professionale</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Modale video */}
+        {isVideoModalOpen && (
+          <div className="video-modal">
+            <div className="modal-overlay" onClick={closeVideoModal}></div>
+            <div className="modal-content">
+              <button className="close-modal" onClick={closeVideoModal}>×</button>
+              <div className="video-wrapper">
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/v92b9s5hb8I?autoplay=1" 
+                  title="Video Wrapping Professionale" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* Carosello Immagini */}
+      <section className="carousel-section">
+        <div className="carousel-container">
+          <button className="carousel-arrow prev-arrow" onClick={prevSlide}>
+            <FaChevronLeft />
+          </button>
+          
+          <div className="carousel-slides">
+            {carouselImages.map((img, index) => (
+              <div 
+                key={index} 
+                className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
+                style={{ 
+                  transform: `translateX(${(index - currentSlide) * 100}%)`,
+                }}
+              >
+                <img 
+                  src={img} 
+                  alt={`Slide ${index + 1}`} 
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                  onError={(e) => {
+                    console.error(`Cannot load image: ${img}`);
+                    e.target.src = '/placeholder.jpg'; // Una immagine placeholder
+                  }}
+                />
+                <div className="carousel-caption">
+                  <h3>Wrapping Professionale</h3>
+                  <p>Trasforma il tuo veicolo con un look unico</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <button className="carousel-arrow next-arrow" onClick={nextSlide}>
+            <FaChevronRight />
+          </button>
+          
+          <div className="carousel-indicators">
+            {carouselImages.map((_, index) => (
+              <button 
+                key={index} 
+                className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => setCurrentSlide(index)}
+              ></button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -82,27 +223,27 @@ const CoseIlWrapping = () => {
 
         <div className="gallery-grid">
           <div className="gallery-item">
-            <img src="/gallery/auto-1.jpg" alt="Wrapping Auto" />
+            <img src="/wrapping%20auto/3.jpg" alt="Wrapping Auto" />
             <div className="gallery-overlay">
               <span>Wrapping Auto</span>
             </div>
           </div>
           <div className="gallery-item">
-            <img src="/gallery/moto-1.jpg" alt="Wrapping Moto" />
+            <img src="/wrapping%20moto/2.jpg" alt="Wrapping Moto" />
             <div className="gallery-overlay">
               <span>Wrapping Moto</span>
             </div>
           </div>
           <div className="gallery-item">
-            <img src="/gallery/nautico-1.jpg" alt="Wrapping Nautico" />
+            <img src="/wrapping%20auto/5.jpg" alt="Wrapping Personalizzato" />
             <div className="gallery-overlay">
-              <span>Wrapping Nautico</span>
+              <span>Wrapping Personalizzato</span>
             </div>
           </div>
         </div>
 
         <div className="gallery-cta">
-          <a href="/contatti" className="btn btn-primary">Contattaci per il tuo progetto</a>
+          <Link to="/contatti" className="btn btn-primary">Contattaci per il tuo progetto</Link>
         </div>
       </section>
     </div>

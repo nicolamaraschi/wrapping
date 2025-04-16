@@ -1,8 +1,8 @@
+// src/components/Footer.js con link social aggiornati
 import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaMapMarkerAlt, FaEnvelope, FaPhone, FaWhatsapp } from 'react-icons/fa';
-// Logo importazione rimossa
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,17 +12,19 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-container">
           <div className="footer-logo-section">
-            {/* Sostituito img con div */}
-            <div className="footer-logo">Wrapping Italy</div>
+            <div className="footer-logo">
+              <img src="/logo.png" alt="Wrapping Italy Logo" style={{ height: '50px', marginBottom: '15px' }} />
+              <div>Wrapping Italy</div>
+            </div>
             <p>Leader italiano nel wrapping professionale con oltre 10 anni di esperienza nella personalizzazione di veicoli e oggetti.</p>
             <div className="social-links">
-              <a href="https://facebook.com/wrappingitaly" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/wrappingitaly/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a href="https://instagram.com/wrappingitaly" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/wrappingitaly.it/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>
-              <a href="https://twitter.com/wrappingitaly" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://x.com/wrappingitaly" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                 <FaTwitter />
               </a>
               <a href="https://linkedin.com/company/wrappingitaly" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

@@ -1,5 +1,7 @@
+// src/pages/GaranzieCondizioni.js
 import React from 'react';
 import './GaranzieCondizioni.css'; 
+import { Link } from 'react-router-dom';
 import { FaCheck, FaInfoCircle, FaFileContract, FaShieldAlt, FaTags, FaTools, FaCloudSun, FaClock, FaExclamationTriangle, FaUserShield, FaRoad } from 'react-icons/fa';
 
 const cardsData = [
@@ -98,7 +100,7 @@ const GaranzieCondizioni = () => (
     <div className="garanzie-cta">
       <h2>Hai domande sulle nostre garanzie?</h2>
       <p>Contattaci per ricevere informazioni dettagliate sui nostri servizi e le relative garanzie</p>
-      <a href="/contatti" className="btn btn-primary">Contattaci Ora</a>
+      <Link to="/contatti" className="btn btn-primary">Contattaci Ora</Link>
     </div>
   </div>
 );

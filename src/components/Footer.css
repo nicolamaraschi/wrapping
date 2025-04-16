@@ -1,7 +1,9 @@
-/* Footer.css aggiornato */
+/* Footer.css aggiornato con i colori della bandiera italiana */
 .footer {
   background-color: var(--dark);
   color: var(--light);
+  border-top: 5px solid;
+  border-image: linear-gradient(to right, #006341 33%, white 33%, white 66%, #CD212A 66%) 1;
 }
 
 .footer-container {
@@ -50,8 +52,20 @@
   transition: all 0.3s ease;
 }
 
-.social-links a:hover {
-  background-color: var(--secondary);
+/* Effetto tricolore sui social links hover */
+.social-links a:nth-child(3n+1):hover {
+  background-color: #006341; /* Verde */
+  transform: translateY(-5px);
+}
+
+.social-links a:nth-child(3n+2):hover {
+  background-color: #FFFFFF; /* Bianco */
+  color: #1A1E2A; /* Testo scuro sul bianco */
+  transform: translateY(-5px);
+}
+
+.social-links a:nth-child(3n+3):hover {
+  background-color: #CD212A; /* Rosso */
   transform: translateY(-5px);
 }
 
@@ -76,8 +90,8 @@
   bottom: -8px;
   left: 0;
   width: 50px;
-  height: 2px;
-  background-color: var(--secondary);
+  height: 3px;
+  background-image: linear-gradient(to right, #006341, #FFFFFF, #CD212A);
 }
 
 .footer-links-column ul {
@@ -97,7 +111,7 @@
 }
 
 .footer-links-column a:hover {
-  color: var(--secondary);
+  color: #CD212A; /* Rosso */
   opacity: 1;
   padding-left: 5px;
 }
@@ -116,7 +130,7 @@
 
 .contact-item svg {
   font-size: 18px;
-  color: var(--secondary);
+  color: #CD212A; /* Rosso */
   margin-top: 3px;
 }
 
@@ -132,18 +146,31 @@
 }
 
 .contact-item a:hover {
-  color: var(--secondary);
+  color: #CD212A; /* Rosso */
+  text-decoration: underline;
 }
 
 .footer-bottom {
   padding: 25px 0;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .footer-bottom p {
   font-size: 14px;
   opacity: 0.7;
   margin: 0;
+}
+
+/* Effetto tricolore sul bordo inferiore */
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, #006341 33%, white 33%, white 66%, #CD212A 66%);
 }
 
 @media (min-width: 992px) {

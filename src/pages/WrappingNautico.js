@@ -1,53 +1,103 @@
+// src/pages/WrappingNautico.js
 import React from 'react';
-import './WrappingNautico.css';
+import { Link } from 'react-router-dom';
+import './WrappingAuto.css'; // Riutilizziamo lo stesso CSS
+import ServiceCard from '../components/ServiceCard';
+import { FaShip, FaShieldAlt, FaSun, FaClock, FaPaintBrush } from 'react-icons/fa';
 
 const WrappingNautico = () => {
   return (
-    <div className="wrapping-nautico-container">
-      <h1>WRAPPING NAUTICO - BOAT WRAPPING</h1>
-      <p className="description">
-        Wrapping nautico è la tecnica innovativa per il rivestimento delle imbarcazioni tramite pellicole adesive.
-        <br /><br />
-        Questa soluzione è ideale per proteggere e rivestire la carena e altre parti della tua imbarcazione risparmiando tempo e denaro nella manutenzione periodica. Permette tra l'altro di rinnovare il look dell'imbarcazione in maniera rapida ed economica rispetto alla verniciatura tradizionale.
-        <br /><br />
-        Ogni barca può essere wrappata, non esistono limiti. In pochi giorni si esegue il lavoro, e in un attimo la barca torna come nuova. La pellicola è una vera e propria protezione dai raggi UV ed, oltre ad essere una barriera impermeabile, rende la tua barca moderna e come nuova. Quindi, se la tua barca ha bisogno di un lifting o stai pensando ad un sistema antifouling di protezione della carena o di un effetto speciale che non può essere raggiunto attraverso la classica verniciatura, il boat wrapping è la soluzione ideale.
-      </p>
-
-      <div className="card-container">
-        <div className="card">
-          <h2>🚤 Protezione e Rivestimento</h2>
+    <div className="service-page-container">
+      <div className="service-hero">
+        <div className="service-hero-content">
+          <h1>Wrapping Nautico</h1>
           <p>
-            Proteggi e rivesti la carena e altre parti della tua imbarcazione con pellicole adesive, risparmiando tempo e denaro nella manutenzione periodica.
+            Trasforma e proteggi la tua imbarcazione con il nostro servizio di wrapping nautico professionale.
+            Una soluzione innovativa, economica e di grande impatto estetico.
           </p>
+          <Link to="/contatti" className="btn btn-primary">Richiedi un Preventivo</Link>
+        </div>
+        <div className="service-hero-image">
+          <img src="/wrapping barche.png" alt="Nautic Wrapping" />
+        </div>
+      </div>
+
+      <div className="service-benefits">
+        <div className="section-header">
+          <h2>Vantaggi del Wrapping Nautico</h2>
+          <p>Scopri perché il wrapping è la soluzione ideale per la tua imbarcazione</p>
         </div>
 
-        <div className="card">
-          <h2>💨 Rinnovamento Rapido</h2>
-          <p>
-            Rinnova il look della tua imbarcazione in modo rapido ed economico, rispetto alla verniciatura tradizionale.
-          </p>
+        <div className="service-cards-grid">
+          <ServiceCard 
+            icon={<FaShip />}
+            title="Rinnovo Completo"
+            description="Rinnova completamente il look della tua imbarcazione in modo rapido ed economico rispetto alla verniciatura tradizionale."
+          />
+          
+          <ServiceCard 
+            icon={<FaShieldAlt />}
+            title="Protezione Avanzata"
+            description="Proteggi la carena e le superfici della tua imbarcazione dagli agenti atmosferici, acqua salata e raggi UV."
+          />
+          
+          <ServiceCard 
+            icon={<FaSun />}
+            title="Resistenza ai Raggi UV"
+            description="Le pellicole nautiche sono specificamente progettate per resistere all'esposizione prolungata ai raggi solari senza sbiadire."
+          />
+          
+          <ServiceCard 
+            icon={<FaClock />}
+            title="Tempi di Lavorazione Ridotti"
+            description="In pochi giorni la tua imbarcazione sarà pronta, riducendo significativamente i tempi di fermo rispetto alla verniciatura."
+          />
+          
+          <ServiceCard 
+            icon={<FaPaintBrush />}
+            title="Design Personalizzato"
+            description="Crea un look unico per la tua imbarcazione con grafiche, colori e finiture personalizzate impossibili da ottenere con la verniciatura."
+          />
+        </div>
+      </div>
+
+      <div className="service-process">
+        <div className="section-header">
+          <h2>Il Processo di Wrapping Nautico</h2>
+          <p>Come trasformiamo la tua imbarcazione</p>
         </div>
 
-        <div className="card">
-          <h2>🌞 Protezione UV</h2>
-          <p>
-            La pellicola fornisce una barriera efficace contro i raggi UV e protegge la tua barca da danni ambientali.
-          </p>
+        <div className="process-steps">
+          <div className="process-step">
+            <div className="step-number">1</div>
+            <h3>Valutazione e Progettazione</h3>
+            <p>Analizziamo l'imbarcazione e sviluppiamo un progetto personalizzato in base alle tue esigenze</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">2</div>
+            <h3>Preparazione delle Superfici</h3>
+            <p>Pulizia approfondita e preparazione delle superfici per garantire un'adesione perfetta</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">3</div>
+            <h3>Applicazione Professionale</h3>
+            <p>Installazione delle pellicole nautiche da parte dei nostri tecnici specializzati</p>
+          </div>
+          
+          <div className="process-step">
+            <div className="step-number">4</div>
+            <h3>Controllo Qualità</h3>
+            <p>Verifica accurata di ogni dettaglio per garantire un risultato impeccabile</p>
+          </div>
         </div>
+      </div>
 
-        <div className="card">
-          <h2>🌊 Flessibilità di Design</h2>
-          <p>
-            Ogni barca può essere wrappata secondo le tue preferenze, senza limiti, e con effetti speciali che la verniciatura non può raggiungere.
-          </p>
-        </div>
-
-        <div className="card">
-          <h2>💬 Contattaci</h2>
-          <p>
-            Hai già in mente il tuo wrapping nautico? Facci sapere qual è il look che hai pensato per la tua barca o il tuo nuovo progetto grafico e insieme lo realizzeremo!
-          </p>
-        </div>
+      <div className="service-cta">
+        <h2>Pronto a trasformare la tua imbarcazione?</h2>
+        <p>Contattaci oggi stesso per un preventivo personalizzato e senza impegno</p>
+        <Link to="/contatti" className="btn btn-primary">Contattaci Ora</Link>
       </div>
     </div>
   );

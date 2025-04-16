@@ -1,4 +1,4 @@
-// Contatti.js aggiornato
+// src/pages/Contatti.js
 import React, { useState } from 'react';
 import './Contatti.css';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaWhatsapp, FaBuilding, FaIdCard } from 'react-icons/fa';
@@ -110,6 +110,10 @@ const Contatti = () => {
               <h3>WhatsApp Business</h3>
               <p><a href="https://wa.me/393519173008">+39 351 917 3008</a></p>
             </div>
+          </div>
+
+          <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            <img src="/logo.png" alt="Wrapping Italy Logo" style={{ maxWidth: '150px', opacity: 0.8 }} />
           </div>
         </div>
         

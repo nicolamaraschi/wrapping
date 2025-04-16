@@ -1,4 +1,23 @@
 /* GaranzieCondizioni.css aggiornato */
+/* Aggiungere a CoseIlWrapping.css */
+.feature-icon {
+  background-color: var(--primary); /* Verde */
+}
+
+/* Alternare i colori delle feature card */
+.feature-card:nth-child(3n+1) .feature-icon {
+  background-color: var(--primary); /* Verde */
+}
+
+.feature-card:nth-child(3n+2) .feature-icon {
+  background-color: white;
+  color: var(--dark);
+  border: 2px solid #ECECEC;
+}
+
+.feature-card:nth-child(3n+3) .feature-icon {
+  background-color: var(--secondary); /* Rosso */
+}
 .garanzie-container {
   width: 100%;
   padding-top: 100px;

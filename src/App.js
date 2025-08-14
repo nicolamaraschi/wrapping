@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PreventivatoreDiWrapping from './components/PreventivatoreDiWrapping';
 import CoseIlWrapping from './pages/CoseIlWrapping';
 import WrappingAuto from './pages/WrappingAuto';
 import WrappingMoto from './pages/WrappingMoto';
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/design" element={<WrappingDesign />} />
           <Route path="/snowboard" element={<WrappingSnowboard />} />
           <Route path="/garanzie-condizioni" element={<GaranzieCondizioni />} />
+          <Route path="/preventivo" element={<PreventivatoreDiWrapping />} />
           <Route path="/contatti" element={<Contatti />} />
         </Routes>
       </main>

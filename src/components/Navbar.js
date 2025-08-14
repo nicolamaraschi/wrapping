@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src="/logo.png" alt="Wrapping Italy Logo" style={{ height: '40px', marginRight: '10px' }} />
+          <img src="/logo.png" alt="Wrapping Italy Logo" style={{ height: '60px', marginRight: '10px' }} />
           Wrapping Italy
         </Link>
         
@@ -59,6 +59,9 @@ const Navbar = () => {
             </Link>
             <Link to="/garanzie-condizioni" className={location.pathname === '/garanzie-condizioni' ? 'active' : ''} onClick={closeMenu}>
               Garanzie
+            </Link>
+            <Link to="/preventivo" className={location.pathname === '/preventivo' ? 'active' : ''} onClick={closeMenu}>
+              Preventivo
             </Link>
           </div>
           
